@@ -79,4 +79,4 @@ The language model is loaded in 4-bit, compressing it to roughly 2–3 GB so it 
 
 ## Use of AI Tools
 
-AI assistance was used for conceptual reference, explanation, and debugging guidance. The system design, decisions, and implementation are my own.
+I used AI assistance heavily throughout this project as a tutor and pair-programmer. As someone newer to ML and RAG, I relied on it to explain concepts, walk me through how the libraries work, suggest approaches, and help debug errors. I typed the code and made the design decisions myself, with AI guiding the process and explaining the reasoning at each step.
