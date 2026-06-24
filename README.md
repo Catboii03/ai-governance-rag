@@ -35,27 +35,42 @@ The language model is loaded in 4-bit, compressing it to roughly 2–3 GB so it 
 
 ## How to Run
 
-**Requirements:** Python 3.12, an NVIDIA GPU (for 4-bit quantization), and a free Kaggle account (for the dataset, downloaded automatically on first run).
+**Requirements:** Python 3.12, an NVIDIA GPU (for 4-bit quantization), and a free Kaggle account (the dataset downloads automatically on the first run).
 
-1. Install dependencies:
+**1. Open a terminal in the project folder:**
 ```
-   pip install -r requirements.txt
-```
-   Note: PyTorch here is the CUDA 13.0 build. If needed, install it with:
-```
-   pip install torch --index-url https://download.pytorch.org/whl/cu130
+cd path\to\ai-gov-rag
 ```
 
-2. Set your Kaggle API token (needed only on the first run to download the dataset):
+**2. Create a virtual environment** (a clean, isolated space for this project's libraries):
 ```
-   $env:KAGGLE_API_TOKEN = "your_token_here"
+python -m venv venv
 ```
 
-3. Run the app:
+**3. Install the dependencies into the virtual environment:**
 ```
-   python app.py
+.\venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
-   On the first run, the system downloads the dataset, chunks it, and builds the search index (this takes a few minutes). Every run after that skips straight to the question prompt. Type a question, or type `quit` to exit.
+Note: PyTorch here is the CUDA 13.0 build. If pip can't find it, install it directly with:
+```
+.\venv\Scripts\python.exe -m pip install torch --index-url https://download.pytorch.org/whl/cu130
+```
+
+**4. Set your Kaggle API token** (needed only on the first run, to download the dataset):
+```
+$env:KAGGLE_API_TOKEN = "your_token_here"
+```
+
+**5. Run the app:**
+```
+.\venv\Scripts\python.exe app.py
+```
+
+On the first run, the system downloads the dataset, chunks it, and builds the search index (this takes a few minutes). Every run after that skips straight to the question prompt.
+
+Type a question to get an answer, or type `quit` to exit.
+
+> Note: these commands use `.\venv\Scripts\python.exe` (the virtual environment's Python directly) so they work on Windows without needing to activate the environment. On macOS/Linux, activate the venv with `source venv/bin/activate` and use `python` instead.
 
 ## Example Queries
 
